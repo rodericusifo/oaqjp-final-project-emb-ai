@@ -1,3 +1,4 @@
+"""Import Modules"""
 from flask import Flask, render_template, request
 from EmotionDetection import emotion_detector
 
@@ -5,10 +6,12 @@ app = Flask("Emotion Dectection")
 
 @app.get("/")
 def emotion_detector_page():
+    """handler for returning emotion decorator page"""
     return render_template("index.html")
 
 @app.get("/emotionDetector")
 def emotion_detector_process():
+    """handler for processing emotion decorator request"""
     text_to_analyze = request.args.get("textToAnalyze")
     response_emotion_detector = emotion_detector(text_to_analyze)
 
